@@ -27,8 +27,30 @@ img{
     border-style: solid;
     border-width: 5px;
 }
+#walk{
+    border-color: none;
+    border-style: none;
+    border-width: 5px;
+}
+#flash{
+    border-color: none;
+    border-style: none;
+    border-width: 5px;
+}
 #text p{
     font-family: 'Bangers', cursive;
     font-size: 25pt;
     color:#ffc510;
+}
+
+#A{
+    margin-left: auto;
+    border-color:#ffc510; 
+    border-style: solid;
+    border-width: 5px;
+}
+#B{
+    border-color:#ffc510; 
+    border-style: solid;
+    border-width: 5px;
 }

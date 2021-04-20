@@ -33,19 +33,32 @@ const ItemPics = function(name, imagePath) {
 }
 // an array for the objects
 ItemPics.allImages = []; 
-// a function is created to generate random numbers associated with each object 
+// a function is created to generate pictures that will not repeat consequetively 
 function itemPicker(){
-    const leftIndex = Math.floor(Math.random() * ItemPics.allImages.length);
-    let centerIndex;
-    let rightIndex;
-    while(centerIndex === undefined || centerIndex === leftIndex || centerIndex === rightIndex)
-        centerIndex = Math.floor(Math.random() * ItemPics.allImages.length);
-    while(rightIndex === undefined || rightIndex === leftIndex || rightIndex === centerIndex){
-        rightIndex = Math.floor(Math.random() * ItemPics.allImages.length);
+    // an comparing is created to store the items that have been shown already 
+    const pickedArray = []; 
+    // when pushed into the array the value will start with null until it is pushed again 
+    pickedArray.push(leftItem);
+    pickedArray.push(centerItem);
+    pickedArray.push(rightItem);
+    // a while loop for the left item is created to gnerate a new item
+    while(pickedArray.includes(leftItem)){
+        let leftIndex = Math.floor(Math.random() * ItemPics.allImages.length);
+        leftItem = ItemPics.allImages[leftIndex]
     }
-    leftItem = ItemPics.allImages[leftIndex]; 
-    centerItem = ItemPics.allImages[centerIndex];
-    rightItem = ItemPics.allImages[rightIndex]; 
+    // the new item that was generated will then be pushed into this array so that now the array has more values than just null
+    pickedArray.push(leftItem); 
+    // another while loopp is created for generating the center image
+    while(pickedArray.includes(centerItem)){
+        let centerIndex = Math.floor(Math.random() * ItemPics.allImages.length);
+        centerItem = ItemPics.allImages[centerIndex];
+    }
+    // center item is generated and pushed into the array 
+    pickedArray.push(centerItem); 
+    while(pickedArray.includes(rightItem)){
+        let rightIndex = Math.floor(Math.random() * ItemPics.allImages.length);
+        rightItem = ItemPics.allImages[rightIndex];
+    }
 }
 // a function is created to render the items with the images associated with them 
 function renderItems(){ 
@@ -63,7 +76,7 @@ function handleTheClick(event){
     const itemClicked = event.target;
     const id = itemClicked.id;
     // as long as the clicks are under 20, the if statement will run to increment the clicks, track the total clicks, and to add to to times shown for the images
-    if(totalClicks < 20){
+    if(totalClicks < 25){
         if(id === 'leftItemImg' || id === 'rightItemImg' || id === 'centerItemImg'){
             // if the left image is clicked 
             if(id === 'leftItemImg'){
@@ -97,10 +110,11 @@ function handleTheClick(event){
     }
     // if the clicks reach to 20 clicks, the event listener will turn off making the user unable to click more
     // and the votes will display, as well as an alert message alerting the user that they cannot click anymore
-    if(totalClicks === 20){
+    if(totalClicks === 25){
         allImages.removeEventListener('click', handleTheClick);
         alert('you have reached the maximum votes!'); 
         votesDisplayed(); 
+        renderChart();
     }
 }
 // a function is created to display the images that have been clicked on within a list format
@@ -115,6 +129,81 @@ function votesDisplayed() {
         liElement.textContent = `${items.name}: ${items.clicks}`;
         results.appendChild(liElement);
     }
+}
+function renderChart(){
+    let labelData = [];
+    for(let item of ItemPics.allImages){ 
+        labelData.push(item.name);
+    }
+    let voteData = [];
+    for(let item of ItemPics.allImages){
+        voteData.push(item.clicks);
+    }
+    var ctx = document.getElementById('chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labelData,
+        datasets: [{
+            label: '# of Votes',
+            data: voteData,
+            backgroundColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 }
 // These are the objects or items that will be used within the code
 new ItemPics('Bag', '/img/products/bag.jpeg');
@@ -142,3 +231,4 @@ allImages.addEventListener('click', handleTheClick);
 // the item picker function and render item function is called
 itemPicker(); 
 renderItems();
+
