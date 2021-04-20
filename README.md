@@ -2,14 +2,13 @@
 
 ## Bus Mall 
 
-I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
-
-### Author: Student/Group Name
+This app will allow users to choose from a series of 3 pictures. After 20 clicks, the user will prompted that the user clicks has been met or exceeded and a vote count for each image will display.
+### Author: Sunnt Lee 
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* Any Links you used as reference
+
+* https://github.com/sunny-lee3/BusMall.git
+* check out the story on the About us page on Cookie-stand to get some info on One-eyed Jack!
 
 ### Reflections and Comments
-* Consider including the answers to your daily journal and submission questions here
-* This is also a good place to reflect on the tools and resources used and learned
+This was a fun and exciting lab, learning about click events and dealing with a bigger data pool.
