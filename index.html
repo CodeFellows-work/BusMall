@@ -11,8 +11,12 @@
     <body>
         <main> 
             <article id='logo'><img src='/img/logo.png' height="100" width='100'/></article>
-            <article id='A'><h1>Sunny's Bus Mall</h1>
-            <p> You can have it!</p></article>
+           <!-- <img id ='robot' src='/img/robot.gif'/>  -->
+            <article id='A'>
+               <marquee direction='right'> <img id ='robot' src='/img/robot.gif' width='100' height='100'/> 
+                </marquee>
+                <h1>Sunny's Bus Mall</h1>
+                <p> You can have it!</p></article>
             <article id="B">
                 <ul id='clicks'>
                 <h2>VOTES</h2>
@@ -37,6 +41,10 @@
                 <li>Water Can</li>
                 <li>Wine Glass</li>
             </ul></article>
+            <article id = 'story'>
+                <h2>What about us?</h2>
+                <p>As mentioned in some text on this page, we have started to fundraise for One-eyed jack's new eye! We just need your help, in determining the most wanted toy on this list. Please click-through and choose whichever items you think is the best! Thank you ~</p>
+            </article>
             <article id='images'>
                 <h2>Check These Items Out!</h2>
                 <div id='leftItem'>
@@ -52,15 +60,25 @@
                     <img id='rightItemImg' src='img/products/bathroom.jpeg'width ='150' height='150'  />
                 </div>
             </article>
-            <img id ='buy' src="img/buy.jpeg" width ='300' height='300'/>
-            <img id='sale' src='img/sale.jpeg' width='300' height='300'/> 
-            <marquee direction='left'><img id='walk' src='img/walkman.gif' width="300" height="300"/> </marquee>  
+            <marquee direction = 'down'><img id ='buy' src="img/buy.jpeg" width ='300' height='300'/></marquee>
+            <img id='sale' src='img/sale.jpeg' width='300' height='200'/> 
+            <div id='walking' >
+            <marquee direction='left'>
+                <img id='walk' src='img/walkman.gif' width="250" height="250"/> 
+            </marquee>  
+            </div>
             <img id='flash' src="img/flash.gif" width="300" height="300" />
-            <canvas id='chart'></canvas>
+            <div id='chartDiv' >
+                <canvas id='chart'></canvas>
+            </div>
+            <div id='chartShownDiv'>
+            <canvas id='chartShown'></canvas>
+            </div>
             <article id='text'><p>Sunny's Bus Mall, features a variety of unique items that are used to fundraise for a a new eye for One-eyed Jack! If you know who One-eyed Jack is, Great! But if you don't, take a look at the "About Us" section on my Cookie-Stand!</p></article>
-            <article id='F'><p>Code Fellows Lab 11. This is not a real sales page, and is for use strictly for sampling or examples. Thank you. </p></article>
+            <article id='F'><p>Code Fellows Lab 11. This is not a real sales page, and is for use strictly for sampling or examples. </p></article>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
         <script src="app.js"></script>
     </body>
 </html>

@@ -1,3 +1,5 @@
+'use strict'
+
 // Creating Global varibales
 // global variable for clicks or results
 const results = document.getElementById('clicks');
@@ -16,6 +18,7 @@ const rightImage = document.getElementById('rightItemImg');
 //  global varaible for the p tag that will render with image associated with
 const rightImageP = document.getElementById('rightItemP'); 
 // This variable will track the total amount of clicks the user will do based in the function on line 56
+
 let totalClicks = 0;
 // items will start off null then will be given a valuee
 let leftItem = null;
@@ -34,6 +37,7 @@ const ItemPics = function(name, imagePath) {
 // an array for the objects
 ItemPics.allImages = []; 
 // a function is created to generate pictures that will not repeat consequetively 
+
 function itemPicker(){
     // an comparing is created to store the items that have been shown already 
     const pickedArray = []; 
@@ -41,6 +45,7 @@ function itemPicker(){
     pickedArray.push(leftItem);
     pickedArray.push(centerItem);
     pickedArray.push(rightItem);
+    console.log(pickedArray);
     // a while loop for the left item is created to gnerate a new item
     while(pickedArray.includes(leftItem)){
         let leftIndex = Math.floor(Math.random() * ItemPics.allImages.length);
@@ -48,7 +53,8 @@ function itemPicker(){
     }
     // the new item that was generated will then be pushed into this array so that now the array has more values than just null
     pickedArray.push(leftItem); 
-    // another while loopp is created for generating the center image
+    console.log(pickedArray);
+    //another while loopp is created for generating the center image
     while(pickedArray.includes(centerItem)){
         let centerIndex = Math.floor(Math.random() * ItemPics.allImages.length);
         centerItem = ItemPics.allImages[centerIndex];
@@ -60,6 +66,30 @@ function itemPicker(){
         rightItem = ItemPics.allImages[rightIndex];
     }
 }
+
+// create function to store items into the local storage
+function storeItems() {
+    // storage accepts string value, and therefore the 'ItemPics.allImages' or items will be turned into a string 
+    let turnIntoString = JSON.stringify(ItemPics.allImages);
+    // placing the object in string form or the value into the 'itemsInStorage' key 
+    localStorage.setItem('itemsInStorage', turnIntoString);
+}
+// function to retrieve the items that are from local storage
+function retrieveItems(){
+    let turnIntoString = localStorage.getItem('itemsInStorage');
+    if(turnIntoString !== null){
+        let turnIntoParse = JSON.parse(turnIntoString);
+        for(let i = 0; i < turnIntoParse.length; i++){
+        let myItem = new ItemPics(turnIntoParse[i].name, turnIntoParse[i].imagePath);
+        myItem.clicks = turnIntoParse[i].clicks;
+        myItem.timesShown = turnIntoParse[i].timesShown;  
+        }
+        console.log(ItemPics.allImages);
+    }else{
+    createItem(); 
+    }
+}
+
 // a function is created to render the items with the images associated with them 
 function renderItems(){ 
     // the images are rendered 
@@ -71,6 +101,7 @@ function renderItems(){
     centerImageP.textContent = centerItem.name;
     rightImageP.textContent = rightItem.name; 
 }
+
 // a function is created to handle the click events that the user will perform
 function handleTheClick(event){
     const itemClicked = event.target;
@@ -87,6 +118,7 @@ function handleTheClick(event){
             rightItem.timesShown++; 
             itemPicker();
             renderItems(); 
+            // storeItems();
            // if the center image is clicked
             }else if(id === 'centerItemImg'){
             centerItem.clicks++;
@@ -96,6 +128,7 @@ function handleTheClick(event){
             rightItem.timesShown++; 
             itemPicker();
             renderItems(); 
+            // storeItems();
             // if the right image is clicked
             }else{
             rightItem.clicks++; 
@@ -115,8 +148,11 @@ function handleTheClick(event){
         alert('you have reached the maximum votes!'); 
         votesDisplayed(); 
         renderChart();
+        renderChartShown();
+        storeItems(); 
     }
 }
+
 // a function is created to display the images that have been clicked on within a list format
 function votesDisplayed() {
     results.innerHTML = ' ';
@@ -130,6 +166,85 @@ function votesDisplayed() {
         results.appendChild(liElement);
     }
 }
+
+// this function is created to render the shown images data
+function renderChartShown(){
+    let labelDataShown  = [];
+    for(let itemShown of ItemPics.allImages){
+        labelDataShown.push(itemShown.name);
+    } 
+    let voteDataShown = []; 
+    for(let itemShownForUser of ItemPics.allImages){
+        voteDataShown.push(itemShownForUser.timesShown)
+    }
+    var ctx = document.getElementById('chartShown').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labelDataShown,
+        datasets: [{
+            label: '# of displays per item',
+            data: voteDataShown,
+            backgroundColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+}
+
+// function to render the chart with the data votes
 function renderChart(){
     let labelData = [];
     for(let item of ItemPics.allImages){ 
@@ -193,6 +308,7 @@ function renderChart(){
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)'
             ],
+
             borderWidth: 1
         }]
     },
@@ -205,6 +321,9 @@ function renderChart(){
     }
 });
 }
+
+// this function is created so that we can call it for the retrieve items function
+function createItem(){
 // These are the objects or items that will be used within the code
 new ItemPics('Bag', '/img/products/bag.jpeg');
 new ItemPics('Banana', '/img/products/banana.jpeg');
@@ -226,9 +345,12 @@ new ItemPics('Unicorn Meat', '/img/products/unicorn.jpeg');
 new ItemPics('USB', '/img/products/usb.gif');
 new ItemPics('Water Can', '/img/products/water-can.jpeg');
 new ItemPics('Wine Glass', '/img/products/wine-glass.jpeg');
+} 
 // event listener will listen for clicks, and then handle the clicks seen on the function on line 62
 allImages.addEventListener('click', handleTheClick);
 // the item picker function and render item function is called
+retrieveItems(); 
 itemPicker(); 
 renderItems();
-
+renderChart();
+renderChartShown();

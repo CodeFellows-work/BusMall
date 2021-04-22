@@ -7,20 +7,27 @@ h1{
     font-size: 40pt;
     color:#ffc510; 
 }
-h2 {
+#images h2 {
+    margin-top: 100px;
+    width: 250px;
     font-family: 'Bangers', cursive;
-    font-size: 28pt;
-    color:#ffc510;
+    font-size: 20pt;
+    color:black;
+  
+}
+#images p{
+    background-color: rgba(225, 210, 0, 0.89);
 }
 p{
     font-family: 'Bangers', cursive;
     font-size: 20pt;
     color:#ee5454
+    
 }
 li {
     font-family: 'Bangers', cursive;
     font-size: 15pt;
-    color:#ee5454
+    color:black;
 }
 img{
     border-color:#ffc510; 
@@ -40,17 +47,117 @@ img{
 #text p{
     font-family: 'Bangers', cursive;
     font-size: 25pt;
-    color:#ffc510;
+    color: black;
+    background-color: rgba(255,255,255,0.8)
 }
-
 #A{
     margin-left: auto;
     border-color:#ffc510; 
     border-style: solid;
     border-width: 5px;
+    background-image: url(/img/street.jpeg);
+}
+#A h1{
+    -webkit-text-fill-color: aquamarine;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 #B{
     border-color:#ffc510; 
     border-style: solid;
     border-width: 5px;
+    background: url(/img/street.jpeg);
+    /* background-position: 800px 470px; 
+    background-size: 110% 80%  */
+    background-repeat: no-repeat; 
+    background-size: 200% 100%;
+    background-position: 1%;
 }
+#B h2{
+    font-family: 'Bangers', cursive;
+    font-size: 30pt;
+    background-color: rgba(225, 210, 0, 0.69);
+}
+#B li{
+    background-color: rgba(225, 210, 0, 0.69);
+}
+#images{
+    background-image: url(/img/cloud.png);
+}
+#robot{
+    border-color: none;
+    border-style: none;
+}
+#story{
+    border-color:#ffc510; 
+    border-style: solid;
+    border-width: 5px;
+    background: url(/img/street.jpeg);
+    background-repeat: no-repeat; 
+    background-size: 300% 100%;
+    background-position: 90%;
+}
+#story h2{
+    font-family: 'Bangers', cursive;
+    font-size: 30pt;
+    background-color: rgba(225, 210, 0, 0.69);
+}
+#story p{
+    background-color:  rgba(225, 210, 0, 0.69);
+    color: black;
+    margin-bottom: 30%;
+}
+#F{
+    margin-top: 100px;
+    border-color:#ffc510; 
+    border-style: solid;
+    border-width: 5px;
+    background: url(/img/street.jpeg);
+    background-repeat: no-repeat; 
+    background-size: 100% 400%;
+    background-position: 90%;
+    width:1250px;
+    height:100px;
+}
+#F p{
+    background-color:  rgba(225, 210, 0, 0.69);
+    color: black;
+}
+#chartDiv{
+    background-color: rgba(225, 40, 190, 0.288);
+    border-color:#ffc510; 
+    border-style: solid;
+    border-width: 5px;
+}
+#chartShownDiv{
+    background-color:  rgba(225, 40, 190, 0.288);
+    border-color:#ffc510; 
+    border-style: solid;
+    border-width: 5px;
+}
+#leftItem{
+    border-color:black;  
+    border-width: 5px;
+    transition: transform .2s; /* Animation */
+}
+#leftItem:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+#centerItem{
+    border-color:black;  
+    border-width: 5px;
+    transition: transform .2s; /* Animation */
+}
+#centerItem:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+#rightItem{
+    border-color:black;  
+    border-width: 5px;
+    transition: transform .2s; /* Animation */
+}
+#rightItem:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
