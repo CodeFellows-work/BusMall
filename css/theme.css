@@ -66,7 +66,7 @@ img{
     border-color:#ffc510; 
     border-style: solid;
     border-width: 5px;
-    background: url(/img/street.jpeg);
+    background-image: url(/img/street.jpeg);
     /* background-position: 800px 470px; 
     background-size: 110% 80%  */
     background-repeat: no-repeat; 
