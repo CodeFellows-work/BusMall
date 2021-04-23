@@ -92,14 +92,14 @@ main {
     grid-column: 6/8;
 }
 #walking{
-    grid-row: 5/6;
+    grid-row: 1/8;
     grid-column: 1/4;
-    /* margin-right:110px; */
+    margin-right:110px;
     margin-bottom:0px;
 }
 #walk{
     margin-right: 100px;
-    margin-top: 500%;
+    margin-top: 507%;
 }
 #flash{
     grid-row: 5/6;
@@ -114,7 +114,17 @@ main {
     grid-row: 2/5;
     grid-column:7/8;
 }
-
+#joker {
+    grid-row: 5/6;
+    grid-column: 1/3;
+    margin-top: 698px;
+}
+#fusion{
+    margin-left: 10%;
+    margin-top:10%;
+    grid-row: 8/9;
+    grid-column: 1/6;
+}
 /* #chartsDiv{
     height:300px;
     width:500px;

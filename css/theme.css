@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 body{
-    background-color:#4c94f6;
+    /* background-color:#4c94f6; */
+    background-image: linear-gradient(skyblue, black, skyblue);
 }
 h1{
     font-family: 'Bangers', cursive;
@@ -138,26 +139,41 @@ img{
 #leftItem{
     border-color:black;  
     border-width: 5px;
-    transition: transform .2s; /* Animation */
-}
+    transform: rotateY(-40deg);
+    transition: transform 1s; /* Animation */
+    
+    }
+
 #leftItem:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+     transform: scale(1.2); /*(150% zoom - Note: if the zoom is too large, it will go outside of the viewport)    */
+     transform: rotateY(350deg);
+     transition: transform .5s;
 }
+
 #centerItem{
     border-color:black;  
     border-width: 5px;
-    transition: transform .2s; /* Animation */
+    transform: rotateY(-40deg);
+    transition: transform 1s; /* Animation */
 }
 #centerItem:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.2); /*(150% zoom - Note: if the zoom is too large, it will go outside of the viewport)    */
+     transform: rotateY(350deg);
+     transition: transform .5s;
 }
 #rightItem{
     border-color:black;  
     border-width: 5px;
-    transition: transform .2s; /* Animation */
+    transform: rotateY(-40deg);
+    transition: transform 1s; /* Animation */
 }
 #rightItem:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.2); /*(150% zoom - Note: if the zoom is too large, it will go outside of the viewport)    */
+     transform: rotateY(350deg);
+     transition: transform .5s;
 }
-
+#joker{
+    border-color: none;
+    border-style: none;
+}
 
