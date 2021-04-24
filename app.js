@@ -325,26 +325,26 @@ function renderChart(){
 // this function is created so that we can call it for the retrieve items function
 function createItem(){
 // These are the objects or items that will be used within the code
-new ItemPics('Bag', '/img/products/bag.jpeg');
-new ItemPics('Banana', '/img/products/banana.jpeg');
-new ItemPics('Toilet Paper Stand', '/img/products/bathroom.jpeg');
-new ItemPics('Toeless Boots', '/img/products/boots.jpeg');
-new ItemPics('Breakfast', '/img/products/breakfast.jpeg');
-new ItemPics('Meat Bubble Gum', '/img/products/bubblegum.jpeg');
-new ItemPics('Chair', '/img/products/chair.jpeg');
-new ItemPics('Cthulhu', '/img/products/cthulhu.jpeg');
-new ItemPics('Rubber Ducky', '/img/products/dog-duck.jpeg');
-new ItemPics('Dragon', '/img/products/dragon.jpeg');
-new ItemPics('Pen', '/img/products/pen.jpeg');
-new ItemPics('Pet Sweeper', '/img/products/pet-sweep.jpeg');
-new ItemPics('Scissors', '/img/products/scissors.jpeg');
-new ItemPics('Shark', '/img/products/shark.jpeg');
-new ItemPics('Personal Sweeper', '/img/products/sweep.png');
-new ItemPics('TaunTaun', '/img/products/tauntaun.jpeg');
-new ItemPics('Unicorn Meat', '/img/products/unicorn.jpeg');
-new ItemPics('USB', '/img/products/usb.gif');
-new ItemPics('Water Can', '/img/products/water-can.jpeg');
-new ItemPics('Wine Glass', '/img/products/wine-glass.jpeg');
+new ItemPics('Bag', './img/products/bag.jpeg');
+new ItemPics('Banana', './img/products/banana.jpeg');
+new ItemPics('Toilet Paper Stand', './img/products/bathroom.jpeg');
+new ItemPics('Toeless Boots', './img/products/boots.jpeg');
+new ItemPics('Breakfast', './img/products/breakfast.jpeg');
+new ItemPics('Meat Bubble Gum', './img/products/bubblegum.jpeg');
+new ItemPics('Chair', './img/products/chair.jpeg');
+new ItemPics('Cthulhu', './img/products/cthulhu.jpeg');
+new ItemPics('Rubber Ducky', './img/products/dog-duck.jpeg');
+new ItemPics('Dragon', './img/products/dragon.jpeg');
+new ItemPics('Pen', './img/products/pen.jpeg');
+new ItemPics('Pet Sweeper', './img/products/pet-sweep.jpeg');
+new ItemPics('Scissors', './img/products/scissors.jpeg');
+new ItemPics('Shark', './img/products/shark.jpeg');
+new ItemPics('Personal Sweeper', './img/products/sweep.png');
+new ItemPics('TaunTaun', './img/products/tauntaun.jpeg');
+new ItemPics('Unicorn Meat', './img/products/unicorn.jpeg');
+new ItemPics('USB', './img/products/usb.gif');
+new ItemPics('Water Can', './img/products/water-can.jpeg');
+new ItemPics('Wine Glass', './img/products/wine-glass.jpeg');
 } 
 // event listener will listen for clicks, and then handle the clicks seen on the function on line 62
 allImages.addEventListener('click', handleTheClick);
