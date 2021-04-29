@@ -51,7 +51,7 @@ main {
     margin-right: 150px;
  }
 #text{
-    background-image: url('./img/Bam.jpeg'); 
+    background-image: url('../img/Bam.jpeg'); 
     grid-column: 3/7;
     grid-row:4/5; 
 }
